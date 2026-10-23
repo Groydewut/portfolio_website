@@ -1,0 +1,11 @@
+/portfolio-site/node_modules/
+/portfolio-site
+/*.out
+
+# Временные файлы
+*.tmp
+*.log
+
+# Настройки IDE
+.idea/
+.vscode/
