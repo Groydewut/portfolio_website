@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Go develper</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/main.js" defer></script>
 
 	<meta
@@ -93,11 +93,133 @@
             </p>
         </section>
 
-        <section class="content-section" id="contacts">
-            <p class="section-index">03 / CONTACT</p>
-            <h2>На связи</h2>
-            <p>В будущем здесь разместим ссылки для связи.</p>
+
+        <section class="projects-section" id="projects">
+            <div class="projects-heading">
+                <div>
+                    <p class="section-index">02 / SELECTED WORKS</p>
+                    <h2>Создаю.<br><span>Проверяю.</span> Улучшаю.</h2>
+                </div>
+
+                <p class="projects-intro">
+                    Практические эксперименты, инструменты
+                    и приложения, которые постепенно становятся
+                    полноценными проектами.
+                </p>
+            </div>
+
+            <div class="projects-controls">
+                <span class="projects-counter">ИЗБРАННЫЕ РАБОТЫ / 001—003</span>
+
+                <div class="projects-arrows">
+                    <button
+                        class="carousel-button"
+                        id="projects-prev"
+                        type="button"
+                        aria-label="Предыдущие проекты"
+                    >←</button>
+
+                    <button
+                        class="carousel-button"
+                        id="projects-next"
+                        type="button"
+                        aria-label="Следующие проекты"
+                    >→</button>
+                </div>
+            </div>
+
+            <div
+                class="projects-viewport"
+                id="projects-viewport"
+                tabindex="0"
+                role="region"
+                aria-label="Карусель проектов"
+                aria-roledescription="карусель"
+            >
+                <div class="projects-track" id="projects-track">
+
+                    <article class="project-card project-card--timer">
+                        <div class="project-card-top">
+                            <span>PROJECT / 001</span>
+                            <span class="project-symbol" aria-hidden="true">◷</span>
+                        </div>
+
+                        <div class="project-art timer-art" aria-hidden="true">
+                            <div class="timer-ring">
+                                <span>25:00</span>
+                            </div>
+                            <span class="art-label">FOCUS MODE</span>
+                        </div>
+
+                        <div class="project-info">
+                            <p class="project-type">GO · WEB APP</p>
+                            <h3>Timer</h3>
+                            <p>Инструмент для управления временем и фокусировки на задачах.</p>
+                            <div class="project-links">
+                                <a href="#contacts">Демо скоро <span>↗</span></a>
+                                <span class="project-status">В разработке</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card--tasks">
+                        <div class="project-card-top">
+                            <span>PROJECT / 002</span>
+                            <span class="project-symbol" aria-hidden="true">▤</span>
+                        </div>
+
+                        <div class="project-art tasks-art" aria-hidden="true">
+                            <div class="task-line"><span>✓</span><i></i></div>
+                            <div class="task-line"><span>○</span><i></i></div>
+                            <div class="task-line"><span>○</span><i></i></div>
+                            <div class="task-line"><span>✓</span><i></i></div>
+                            <span class="art-label">TASKS / IN PROGRESS</span>
+                        </div>
+
+                        <div class="project-info">
+                            <p class="project-type">GO · REST API</p>
+                            <h3>Task Manager</h3>
+                            <p>API для управления задачами с базой данных и фильтрацией.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Groydewut/Task-Manager---API-" target="_blank" rel="noopener noreferrer">
+                                    Исходный код <span>↗</span>
+                                </a>
+                                <span class="project-status">API</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card--expense">
+                        <div class="project-card-top">
+                            <span>PROJECT / 003</span>
+                            <span class="project-symbol" aria-hidden="true">↗</span>
+                        </div>
+
+                        <div class="project-art expense-art" aria-hidden="true">
+                            <span class="expense-caption">TOTAL SPENDING</span>
+                            <span class="expense-value">₽  —</span>
+                            <div class="expense-bars">
+                                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <p class="project-type">GO · BACKEND</p>
+                            <h3>Expense Service</h3>
+                            <p>Сервис учёта расходов с категориями и подсчётом трат.</p>
+                            <div class="project-links">
+                                <a href="#contacts">Демо скоро <span>↗</span></a>
+                                <span class="project-status">В планах</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <p class="carousel-hint">ПРОКРУЧИВАЙТЕ · ПЕРЕТАСКИВАЙТЕ · ИССЛЕДУЙТЕ</p>
         </section>
+
     </main>
 
     <footer class="footer">
