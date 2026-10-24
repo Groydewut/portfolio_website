@@ -37,34 +37,45 @@
     </header>
 
     <main>
+
         <section class="hero" id="home">
             <div class="hero-meta">
                 <span>GO DEVELOPER</span>
                 <span>PERSONAL WEBSITE · 2026</span>
             </div>
 
-            <div class="hero-content">
-                <p class="eyebrow">
-                    <span class="status-dot"></span>
-                    Изучаю. Создаю. Улучшаю.
-                </p>
-
-                <h1>
-                    Код — это<br>
-                    способ <span>создавать.</span>
-                </h1>
-
-                <div class="hero-bottom">
-                    <p class="hero-description">
-                        Разрабатываю приложения на Go,
-                        изучаю инженерный подход и превращаю
-                        идеи в работающие проекты.
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <p class="eyebrow">
+                        <span class="status-dot"></span>
+                        Изучаю. Создаю. Улучшаю.
                     </p>
 
-                    <a class="hero-link" href="#projects">
-                        Смотреть проекты
-                        <span aria-hidden="true">↘</span>
-                    </a>
+                    <h1>
+                        Код — это<br>
+                        способ <span>создавать.</span>
+                    </h1>
+
+                    <div class="hero-bottom">
+                        <p class="hero-description">
+                            Разрабатываю приложения на Go,
+                            изучаю инженерный подход и превращаю
+                            идеи в работающие проекты.
+                        </p>
+
+                        <a class="hero-link" href="#projects">
+                            Смотреть проекты
+                            <span aria-hidden="true">↘</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero__portrait-wrapper">
+                    <img
+                        class="hero__portrait"
+                        src="/images/portrait.png"
+                        alt="Фото разработчика"
+                    >
                 </div>
             </div>
 
@@ -75,14 +86,50 @@
             </div>
         </section>
 
-        <section class="content-section" id="about">
-            <p class="section-index">01 / ABOUT</p>
-            <h2>Обо мне</h2>
-            <p>
-                Здесь расскажем о твоём подходе к разработке,
-                технологиях и целях. Пока это основа будущего раздела.
-            </p>
+
+            <div class="hero-decoration" aria-hidden="true">
+                <span class="decoration-circle"></span>
+                <span class="decoration-label">BUILD / LEARN / REPEAT</span>
+                <span class="decoration-number">001</span>
+            </div>
         </section>
+
+
+        <section class="about-section" id="about">
+            <p class="section-index">01 / ABOUT</p>
+
+            <div class="about-layout">
+                <div class="about-heading">
+                    <h2>Не просто пишу код.<br><span>Разбираюсь, как он работает.</span></h2>
+                </div>
+
+                <div class="about-content">
+                    <p class="about-lead">
+                        Я начинающий Go-разработчик. Создаю приложения,
+                        изучаю устройство веб-сервисов и постепенно перехожу
+                        от отдельных функций к полноценным проектам.
+                    </p>
+
+                    <p class="about-description">
+                        Мне важно понимать не только то, как написать код,
+                        но и почему программа устроена именно так.
+                        Изучаю работу API, баз данных, обработку ошибок
+                        и инструменты разработки.
+                    </p>
+
+                    <div class="about-tags">
+                        <span>GO</span>
+                        <span>REST API</span>
+                        <span>POSTGRESQL</span>
+                        <span>DOCKER</span>
+                        <span>GIT</span>
+                        <span>Linux</span>
+                        <span>Windows</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section class="content-section" id="projects">
             <p class="section-index">02 / SELECTED WORKS</p>
@@ -212,6 +259,124 @@
 
             <p class="carousel-hint">ПРОКРУЧИВАЙТЕ · ПЕРЕТАСКИВАЙТЕ · ИССЛЕДУЙТЕ</p>
         </section>
+
+        <section class="contacts-section" id="contacts">
+            <p class="section-index">03 / CONTACT</p>
+
+            <div class="contacts-content">
+                <p class="eyebrow">ОТКРЫТ К НОВЫМ ВОЗМОЖНОСТЯМ</p>
+
+                <h2>Есть идея?<br><span>Давай обсудим.</span></h2>
+
+                <p class="contacts-description">
+                    Есть вопрос, предложение или интересный проект?
+                    Напиши мне удобным способом.
+                </p>
+
+
+                <div class="contacts-links">
+                    <a
+                        class="contact-link"
+                        href="https://github.com/Groydewut"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>GitHub</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a
+                        class="contact-link"
+                        href="https://habr.com/ru/users/crud_1/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>Хабр · crud_1</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a
+                        class="contact-link"
+                        href="https://t.me/megakittensenior"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>Telegram · @megakittensenior</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <p class="section-index">НАПИСАТЬ ПИСЬМО</p>
+
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-field">
+                            <label for="contact-name">Как к вам обращаться?</label>
+                            <input
+                                id="contact-name"
+                                name="name"
+                                type="text"
+                                minlength="2"
+                                maxlength="80"
+                                autocomplete="name"
+                                placeholder="Ваше имя"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="contact-email">Ваш email</label>
+                            <input
+                                id="contact-email"
+                                name="email"
+                                type="email"
+                                maxlength="254"
+                                autocomplete="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="contact-message">Сообщение</label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                minlength="10"
+                                maxlength="5000"
+                                rows="6"
+                                placeholder="Расскажите, что вы хотите обсудить..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-trap" aria-hidden="true">
+                            <label for="contact-website">Не заполняйте это поле</label>
+                            <input
+                                id="contact-website"
+                                name="website"
+                                type="text"
+                                tabindex="-1"
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <button class="contact-submit" type="submit">
+                            <span>Отправить сообщение</span>
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                        <p
+                            class="contact-form-status"
+                            id="contact-form-status"
+                            role="status"
+                            aria-live="polite"
+                        ></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
 
     </main>
 

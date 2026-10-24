@@ -1,11 +1,11 @@
 /portfolio-site/node_modules/
 /portfolio-site
 /*.out
-
+/static/images/
 # Временные файлы
 *.tmp
 *.log
-
+*_test.go
 # Настройки IDE
 .idea/
 .vscode/

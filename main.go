@@ -6,12 +6,18 @@ import (
 )
 
 func main() {
-	fs := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fs)
-	log.Println("Сервер запущен http://localhost:8080")
+	mux := http.NewServeMux()
 
-	err := http.ListenAndServe(":8080", nil)
-	if err != nil {
+	// Обработчик формы обратной связи.
+	mux.HandleFunc("/api/contact", handleContact)
+
+	// Раздача HTML, CSS, JavaScript и других статических файлов.
+	fs := http.FileServer(http.Dir("./static"))
+	mux.Handle("/", fs)
+
+	log.Println("Сервер запущен: http://localhost:8080")
+
+	if err := http.ListenAndServe(":8080", mux); err != nil {
 		log.Fatal(err)
 	}
 }
