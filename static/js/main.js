@@ -1,4 +1,9 @@
+// Всегда начинаем страницу с самого верха
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
 
+window.scrollTo(0, 0);
 const themeToggle = document.querySelector("#theme-toggle");
 const root = document.documentElement;
 
@@ -16,8 +21,24 @@ function getInitialTheme() {
 }
 
 // Применяем тему к странице
+
 function applyTheme(theme) {
     root.dataset.theme = theme;
+
+    if (theme === "dark") {
+        const gradientX = Math.floor(Math.random() * 101);
+        const gradientY = Math.floor(Math.random() * 101);
+        const gradientAngle = Math.floor(Math.random() * 360);
+        const gradientOpacity = (
+            0.04 + Math.random() * 0.07
+        ).toFixed(3);
+
+        root.style.setProperty("--gradient-x", `${gradientX}%`);
+        root.style.setProperty("--gradient-y", `${gradientY}%`);
+        root.style.setProperty("--gradient-angle", `${gradientAngle}deg`);
+        root.style.setProperty("--gradient-opacity", gradientOpacity);
+    }
+
     themeToggle.setAttribute(
         "aria-label",
         theme === "dark"
@@ -28,6 +49,7 @@ function applyTheme(theme) {
     themeToggle.querySelector("span").textContent =
         theme === "dark" ? "☀" : "◐";
 }
+
 
 // Обработчик переключения темы
 themeToggle.addEventListener("click", () => {

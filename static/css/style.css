@@ -14,7 +14,7 @@
 
 [data-theme="dark"] {
     color-scheme: dark;
-    --bg: #3C2F24;
+    --bg: #302E2A;
     --surface: #45372B;
     --card: #5B4A3C;
     --text: #F6F0E4;
@@ -24,6 +24,31 @@
     --border: #806A55;
     --header-bg: rgba(60, 47, 36, 0.88);
 }
+
+/* Случайный градиент тёмной темы */
+[data-theme="dark"] body {
+    background-color: var(--bg);
+    background-image:
+        /* Плавный кремовый источник света */
+        radial-gradient(
+            ellipse 80% 80% at var(--gradient-x, 75%) var(--gradient-y, 20%),
+            rgba(246, 240, 228, var(--gradient-opacity, 0.07)) 0%,
+            transparent 80%
+        ),
+        /* Контрастный коричневый градиент */
+        linear-gradient(
+            var(--gradient-angle, 135deg),
+            #23211F 0%, /* Ультра-темный */
+            #3C3025 55%, /* Насыщенный коричневый */
+            #524031 100% /* Светло-коричневый */
+        );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
 
 * {
     box-sizing: border-box;
@@ -140,7 +165,6 @@ button {
 }
 
 /* Hero */
-
 .hero {
     position: relative;
     isolation: isolate;
@@ -178,38 +202,86 @@ button {
 
 /* Hero layout with portrait */
 
+/* Hero portrait background */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
 .hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 36%);
-    align-items: center;
-    gap: 35px;
+    position: relative;
+    z-index: 1;
+    display: flex;
     flex: 1;
     min-height: 0;
 }
 
 .hero-layout .hero-content {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
+    position: relative;
+    z-index: 2;
+    width: min(100%, 1050px);
+    max-width: 62%;
+    margin: auto 0;
 }
 
-.hero__portrait-wrapper {
+.hero__background-portrait {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: -2%;
+    bottom: 0;
+    width: min(58%, 760px);
+
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    align-self: stretch;
-    min-width: 0;
+
+    pointer-events: none;
     overflow: hidden;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 12%,
+        black 35%,
+        black 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 12%,
+        black 35%,
+        black 100%
+    );
 }
 
 .hero__portrait {
     display: block;
     width: 100%;
     height: 100%;
-    max-height: 590px;
     object-fit: contain;
-    object-position: center bottom;
+    object-position: right bottom;
+
+    /*-webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 96%,
+        rgba(0, 0, 0, 0.8) 98%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 96%,
+        rgba(0, 0, 0, 0.8) 98%,
+        transparent 100%
+    );*/
+    -webkit-mask-image: none;
+    mask-image: none;
 }
+
 
 .eyebrow {
     display: flex;
@@ -401,7 +473,6 @@ button {
     font-size: 10px;
     letter-spacing: 0.12em;
 }
-
 /* Responsive layout */
 
 @media (min-width: 1500px) {
@@ -447,18 +518,57 @@ button {
         display: none;
     }
 
+
     .hero-layout {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
     }
 
-    .hero-content {
-        padding: 45px 0 20px;
+    .hero-layout .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 45px 0 300px;
     }
 
-    .hero__portrait-wrapper {
-        min-height: 0;
-        height: 340px;
+    .hero__background-portrait {
+        top: auto;
+        right: -5%;
+        bottom: 0;
+        width: 100%;
+        height: 350px;
+        justify-content: center;
+
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 10%,
+            black 100%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 5%,
+            black 100%,
+            transparent 100%
+        );
+        /*-webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 100%
+
+            black 20%,
+            black 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 20%,
+            black 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        );*/
     }
 
     .hero__portrait {
@@ -466,7 +576,25 @@ button {
         height: 100%;
         object-fit: contain;
         object-position: center bottom;
+
+        /*-webkit-mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%
+        );*/
+        -webkit-mask-image: none;
+        mask-image: none;
     }
+
 
     .hero {
         min-height: auto;
@@ -1096,14 +1224,17 @@ button {
         transform: none;
     }
 }
+
 .about-section {
+    border-top: 2px solid var(--border);
     padding: 100px 8%;
     border-bottom: 1px solid var(--border);
 }
 
 .about-layout {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    /* ИСПРАВЛЕНО: Правая колонка с текстом теперь шире (1.2fr), чтобы читать было удобнее */
+    grid-template-columns: 1fr 1.2fr;
     gap: 64px;
     align-items: start;
     margin-top: 40px;
@@ -1113,23 +1244,31 @@ button {
     font-size: clamp(32px, 4.5vw, 64px);
     line-height: 1.1;
     letter-spacing: -0.045em;
+    color: var(--text);
 }
 
+/* Изменяем цвет второй строчки заголовка на ваш теплый акцентный */
 .about-heading h2 span {
-    color: var(--text-secondary);
+    color: var(--accent);
+    display: inline-block;
+    margin-top: 8px;
 }
 
 .about-content {
     padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Добавляем воздух между абзацами */
 }
 
 .about-lead {
     font-size: 20px;
     line-height: 1.6;
+    font-weight: 500;
+    color: var(--text);
 }
 
 .about-description {
-    margin-top: 20px;
     color: var(--text-secondary);
     line-height: 1.8;
 }
@@ -1137,19 +1276,89 @@ button {
 .about-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     margin-top: 28px;
 }
 
+/* Прокачиваем интерактивность тегов */
 .about-tags span {
-    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
     border: 1px solid var(--border);
     border-radius: 100px;
     color: var(--text-secondary);
-    font-size: 11px;
-    letter-spacing: 0.08em;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background-color: transparent;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
 }
 
+.about-tags span svg {
+    width: 16px; /* Чуть увеличили для лучшей детализации */
+    height: 16px;
+    flex-shrink: 0;
+    fill: currentColor; /* Заставляет SVG перекрашиваться вместе с текстом */
+    transition: fill 0.25s ease;
+}
+/* Эффект наведения (Ховер) на теги */
+.about-tags span:hover {
+    color: var(--text);
+    background-color: var(--card);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 121, 80, 0.15);
+}
+
+/* Выделяем главный язык разработки — Go */
+
+.about-tags span.tag-go {
+    border-color: rgba(0, 173, 216, 0.4);
+}
+.about-tags span.tag-go:hover {
+    border-color: #00ADD8;
+    box-shadow: 0 4px 12px rgba(0, 173, 216, 0.2);
+}
+
+/* REST API */
+.about-tags span.tag-api:hover {
+    border-color: #E17055;
+    box-shadow: 0 4px 12px rgba(225, 112, 85, 0.2);
+}
+
+/* POSTGRESQL */
+.about-tags span.tag-postgres:hover {
+    border-color: #336791;
+    box-shadow: 0 4px 12px rgba(51, 103, 145, 0.2);
+}
+
+/* DOCKER */
+.about-tags span.tag-docker:hover {
+    border-color: #2496ED;
+    box-shadow: 0 4px 12px rgba(36, 150, 237, 0.2);
+}
+
+/* GIT */
+.about-tags span.tag-git:hover {
+    border-color: #F05032;
+    box-shadow: 0 4px 12px rgba(240, 80, 50, 0.2);
+}
+
+/* Linux */
+.about-tags span.tag-linux:hover {
+    border-color: #FCC624;
+    box-shadow: 0 4px 12px rgba(252, 198, 36, 0.2);
+}
+
+/* Windows */
+.about-tags span.tag-windows:hover {
+    border-color: #0078D4;
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.2);
+}
+/* Адаптивность под мобильные устройства (Сохранена и улучшена) */
 @media (max-width: 760px) {
     .about-section {
         padding: 72px 6%;
@@ -1163,8 +1372,14 @@ button {
     .about-lead {
         font-size: 18px;
     }
+
+    .about-tags span:hover {
+        transform: none; /* Убираем микро-прыжок при клике пальцем на телефонах */
+    }
 }
+
 .contacts-section {
+    border-top: 2px solid var(--border);
     padding: 100px 8%;
     border-bottom: 1px solid var(--border);
 }
@@ -1217,21 +1432,25 @@ button {
 }
 
 @media (max-width: 760px) {
+
     .contacts-section {
+        border-top: 2px solid var(--border);
         padding: 72px 6%;
     }
 
     .contacts-content {
+
         margin-top: 36px;
     }
 }
 .contact-form-wrapper {
     margin-top: 72px;
     padding-top: 32px;
-    border-top: 1px solid var(--border);
+
 }
 
 .contact-form {
+
     display: grid;
     gap: 24px;
     margin-top: 28px;
