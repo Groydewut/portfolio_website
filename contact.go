@@ -13,6 +13,8 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
+
+	"github.com/joho/godotenv"
 )
 
 var contactLimiter = newRateLimiter(30*time.Second, 10000)
@@ -44,6 +46,11 @@ func writeContactResponse(
 	}
 }
 func sendContactEmail(name, email, message string) error {
+	err := godotenv.Load()
+	if err != nil {
+		return fmt.Errorf("не удалось загрузить переменые окружения .env, попытка использовать из терминала...")
+	}
+
 	host := os.Getenv("SMTP_HOST")
 	port := os.Getenv("SMTP_PORT")
 	username := os.Getenv("SMTP_USER")
