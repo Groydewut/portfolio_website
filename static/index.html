@@ -157,15 +157,121 @@
         </section>
 
 
-        <section class="content-section" id="projects-info">
-            <p class="section-index">02 / SELECTED WORKS</p>
-            <h2>Проекты</h2>
-            <p>
-                Здесь постепенно появятся проекты с GitHub,
-                описания технических решений и ссылки на демоверсии.
-            </p>
-        </section>
 
+        <section class="roadmap-section" id="roadmap">
+            <div class="roadmap-heading">
+                <div>
+                    <p class="section-index">02 / ROADMAP</p>
+                    <h2>Путь развития<br><span>и план обучения.</span></h2>
+                </div>
+
+                <p class="roadmap-intro">
+                    Постоянно изучаю новые технологии и углубляю
+                    знания Go, постепенно переходя к более сложным
+                    backend-системам.
+                </p>
+            </div>
+
+            <div class="roadmap-grid">
+
+                <article class="roadmap-card is-active">
+                    <div class="roadmap-card-top">
+                        <span class="roadmap-number">STAGE / 001</span>
+                        <span class="roadmap-status">
+                            <i class="status-pulse" aria-hidden="true"></i>
+                            Сейчас изучаю
+                        </span>
+                    </div>
+
+                    <h3>Углубление Go</h3>
+                    <p>
+                        Структуры данных, указатели, конкурентность (goroutines, channels)
+                        и эффективная работа с памятью.
+                    </p>
+
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-info">
+                            <span>ПРОГРЕСС ЭТАПА</span>
+                            <span class="progress-percent">65%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" style="--progress: 65%"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="roadmap-card is-active">
+                    <div class="roadmap-card-top">
+                        <span class="roadmap-number">STAGE / 002</span>
+                        <span class="roadmap-status">
+                            <i class="status-pulse" aria-hidden="true"></i>
+                            В процессе
+                        </span>
+                    </div>
+
+                    <h3>Тестирование</h3>
+                    <p>
+                        Unit-тесты, интеграционное тестирование,
+                        mocks и проверка надёжности REST API.
+                    </p>
+
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-info">
+                            <span>ПРОГРЕСС ЭТАПА</span>
+                            <span class="progress-percent">30%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" style="--progress: 30%"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="roadmap-card">
+                    <div class="roadmap-card-top">
+                        <span class="roadmap-number">STAGE / 003</span>
+                        <span class="roadmap-status">Следующий этап</span>
+                    </div>
+
+                    <h3>CI/CD</h3>
+                    <p>
+                        Автоматизация тестирования, сборки и
+                        развёртывания проектов через GitHub Actions.
+                    </p>
+                </article>
+
+                <article class="roadmap-card">
+                    <div class="roadmap-card-top">
+                        <span class="roadmap-number">STAGE / 004</span>
+                        <span class="roadmap-status">В планах</span>
+                    </div>
+
+                    <h3>Брокеры сообщений</h3>
+                    <p>
+                        RabbitMQ, Kafka и асинхронное взаимодействие
+                        между микросервисами.
+                    </p>
+                </article>
+
+                <article class="roadmap-card roadmap-card--wide">
+                    <div class="roadmap-card-top">
+                        <span class="roadmap-number">STAGE / 005</span>
+                        <span class="roadmap-status">В планах</span>
+                    </div>
+
+                    <div class="roadmap-wide-body">
+                        <div>
+                            <h3>Мониторинг и наблюдаемость</h3>
+                            <p>
+                                Prometheus, сбор метрик производительности,
+                                структурированное логирование и трассировка запросов.
+                            </p>
+                        </div>
+                        <span class="roadmap-wide-tag">METRICS · LOGS · TRACING</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
 
         <section class="projects-section" id="projects">
             <div class="projects-heading">
@@ -182,7 +288,7 @@
             </div>
 
             <div class="projects-controls">
-                <span class="projects-counter">ИЗБРАННЫЕ РАБОТЫ / 001—003</span>
+                <span class="projects-counter">ИЗБРАННЫЕ РАБОТЫ / 001—004</span>
 
                 <div class="projects-arrows">
                     <button class="carousel-button" id="projects-prev" type="button" aria-label="Предыдущие проекты">
@@ -222,8 +328,7 @@
                             <h3>Timer</h3>
                             <p>Инструмент для управления временем и фокусировки на задачах.</p>
                             <div class="project-links">
-                                <a href="https://github.com/Groydewut/MyTimer.git" target="_blank" rel="noopener noreferrer">
-                                    Исходный код <span>↗</span>
+                                <a href="https://github.com/Groydewut/MyTimer.git">Исходный код<span>↗</span></a>
                                 <span class="project-status">В разработке</span>
                             </div>
                         </div>
@@ -275,10 +380,39 @@
                             <h3>Expense Service</h3>
                             <p>Сервис учёта расходов с категориями и подсчётом трат.</p>
                             <div class="project-links">
-                                <a href="https://github.com/Groydewut/ProjecktExpense.git" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/Groydewut/ProjecktExpense.git">Исходный код<span>↗</span></a>
+                                <span class="project-status">В планах</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card project-card--passgen">
+                        <div class="project-card-top">
+                            <span>PROJECT / 004</span>
+                            <span class="project-symbol" aria-hidden="true">❖</span>
+                        </div>
+
+                        <div class="project-art passgen-art" aria-hidden="true">
+                            <div class="passgen-box">
+                                <span class="passgen-flag">$ passgen -hard</span>
+                                <span class="passgen-output">Tq4#xL9=mZ2k</span>
+                            </div>
+                            <div class="passgen-levels">
+                                <span>-EASY</span>
+                                <span>-MEDIUM</span>
+                                <span class="is-active">-HARD</span>
+                            </div>
+                            <span class="art-label">CRYPTO / RAND</span>
+                        </div>
+
+                        <div class="project-info">
+                            <p class="project-type">GO · CLI UTILITY</p>
+                            <h3>Password Generate</h3>
+                            <p>Консольная утилита на Go для генерации и валидации паролей с тремя уровнями сложности.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Groydewut/passgen.git" target="_blank" rel="noopener noreferrer">
                                     Исходный код <span>↗</span>
                                 </a>
-                                <span class="project-status">В планах</span>
+                                <span class="project-status">Готово</span>
                             </div>
                         </div>
                     </article>
