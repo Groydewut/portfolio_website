@@ -47,9 +47,9 @@ func writeContactResponse(
 }
 func sendContactEmail(name, email, message string) error {
 	err := godotenv.Load()
-	if err != nil {
-		return fmt.Errorf("не удалось загрузить переменые окружения .env, попытка использовать из терминала...")
-	}
+	if err := godotenv.Load(); err != nil {
+        log.Printf("Файл .env не найден, используем переменные окружения: %v", err)
+    }
 
 	host := os.Getenv("SMTP_HOST")
 	port := os.Getenv("SMTP_PORT")
