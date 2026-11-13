@@ -17,7 +17,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var contactLimiter = newRateLimiter(30*time.Second, 10000)
+var contactLimiter = newRateLimiter(10*time.Second, 10000)
 
 type contactRequest struct {
 	Name    string `json:"name"`
@@ -159,7 +159,7 @@ func handleContact(w http.ResponseWriter, r *http.Request) {
 		writeContactResponse(
 			w,
 			http.StatusTooManyRequests,
-			"Слишком много запросов. Попробуйте через 30 секунд.",
+			"Слишком много запросов. Попробуйте через 10 секунд.",
 		)
 		return
 	}
